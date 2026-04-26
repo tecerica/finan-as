@@ -441,7 +441,7 @@
 <header>
   <div class="header-left">
     <h1>Meu <span>Organizador</span></h1>
-    <p>Controle de tarefas &amp; prioridades · criado por <span style="color:var(--gold);font-weight:600">Erica Barbosa</span></p>
+    <p>Controle de tarefas &amp; prioridades</p>
   </div>
   <div class="header-actions">
     <button class="btn btn-outline" onclick="shareAll()">📤 Enviar tudo</button>
@@ -452,7 +452,6 @@
 <div class="print-header">
   <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem">Meu Organizador de Vida</h2>
   <p id="printDate" style="color:#666;margin-top:4px"></p>
-  <p style="color:#aaa;font-size:0.8rem;margin-top:4px">Criado por Erica Barbosa</p>
 </div>
 
 <main>
