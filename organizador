@@ -441,7 +441,7 @@
 <header>
   <div class="header-left">
     <h1>Meu <span>Organizador</span></h1>
-    <p>Controle de tarefas &amp; prioridades</p>
+    <p>Controle de tarefas &amp; prioridades · criado por <span style="color:var(--gold);font-weight:600">Erica Barbosa</span></p>
   </div>
   <div class="header-actions">
     <button class="btn btn-outline" onclick="shareAll()">📤 Enviar tudo</button>
@@ -452,6 +452,7 @@
 <div class="print-header">
   <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem">Meu Organizador de Vida</h2>
   <p id="printDate" style="color:#666;margin-top:4px"></p>
+  <p style="color:#aaa;font-size:0.8rem;margin-top:4px">Criado por Erica Barbosa</p>
 </div>
 
 <main>
@@ -748,7 +749,6 @@ function render() {
   ln.innerHTML = normal.length ? normal.map(cardHTML).join('') : '<div class="empty"><div class="icon">🌿</div><p>Nenhuma tarefa pendente</p></div>';
   ld.innerHTML = done.length ? done.map(cardHTML).join('') : '<div class="empty"><p>Nenhuma tarefa concluída ainda</p></div>';
 
-  // Summary chips
   var all = tasks.filter(function(t) { return !t.done; });
   var urgCount = all.filter(function(t) { return t.priority === 'urgente' || t.priority === 'alta'; }).length;
   document.getElementById('summaryChips').innerHTML =
@@ -756,18 +756,15 @@ function render() {
     '<span class="chip chip-normal">🔵 ' + (all.length - urgCount) + ' pendente(s)</span>' +
     '<span class="chip chip-done">✅ ' + tasks.filter(function(t){return t.done;}).length + ' concluída(s)</span>';
 
-  // Date
   var now = new Date();
   document.getElementById('dateDisplay').innerHTML = '<strong>' + now.toLocaleDateString('pt-BR', {weekday:'long', day:'numeric', month:'long', year:'numeric'}) + '</strong>';
   document.getElementById('printDate').textContent = now.toLocaleDateString('pt-BR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 }
 
-// Close modal on overlay click
 document.getElementById('editModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-// Enter to add
 document.getElementById('inp-title').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') addTask();
 });
